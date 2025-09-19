@@ -5,7 +5,11 @@ from time import time
 csv_path = "../data/archive/covid/covid_19_clean_complete.csv"
 parquet_path = "../data/archive/covid/covid_19_clean_complete.parquet"
 
-con = duckdb.connect(database=":memory:")
+#Creation d'une db pour le tp3  
+con = duckdb.connect(database="../data/covid.duckdb", read_only=False)
+
+con.execute("DROP TABLE IF EXISTS covid_csv")
+con.execute("DROP TABLE IF EXISTS covid_parquet")
 
 start_csv = time()
 con.execute(f"""
@@ -36,3 +40,13 @@ print(con.execute("""
 """).df())
 
 print(f"\nTemps CSV : {round(csv_duration,3):}s | Temps Parquet : {round(parquet_duration,3):}s")
+
+# Création d'une table nettoyée pour le TP3 (covid_clean)
+con.execute("""
+    CREATE OR REPLACE TABLE covid_clean AS
+    SELECT *
+    FROM covid_parquet
+    WHERE Confirmed IS NOT NULL AND Deaths IS NOT NULL AND Recovered IS NOT NULL
+""")
+
+print("\nTable 'covid_clean' créée avec succès.")

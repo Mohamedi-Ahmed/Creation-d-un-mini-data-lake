@@ -1,18 +1,22 @@
-## TP3 – Dashboard Interactif avec Streamlit + DuckDB
 
-### Objectifs
+# TP3 – Dashboard Interactif avec Streamlit + DuckDB
 
-- Visualisation des données traitées
-- Interaction utilisateur avec requêtes en direct
+## Objectifs
 
-### Travaux
+- Visualiser les données traitées dans DuckDB
+- Ajouter des interactions utilisateurs (filtres, recherche, export)
 
-1. Reprendre les données précédemment ingérées dans DuckDB.
-2. Créer une app Streamlit dans un container à part qui :
-   - Connecte à DuckDB (via volume partagé ou fichier monté)
-   - Permet de sélectionner des filtres (dates, régions, etc.)
-   - Affiche des KPI, des graphiques (Bar, Line, Map si géo)
-3. Dockeriser l’application Streamlit.
+## Fonctionnalités
 
-- Ajouter une barre de recherche (requêtes dynamiques)
-- Proposer des exports CSV des vues actuelles
+- Connexion à une base DuckDB existante
+- Filtres par pays
+- Affichage de KPI et graphiques
+- Export CSV des vues filtrées
+
+## Lancement
+
+```bash
+docker-compose up --build
+```
+
+Accéder à l'application : http://localhost:8501
