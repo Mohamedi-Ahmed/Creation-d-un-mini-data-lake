@@ -1,23 +1,35 @@
-## TP5 – Mini Data Lake Local avec DuckDB + Streamlit
+# TP4 – Mini Data Lake Local avec DuckDB + Streamlit
 
-### Objectifs
+## Objectifs
 
-- Simuler un data lake local
-- Utiliser DuckDB avec des fichiers CSV/Parquet partitionnés
-- Créer une interface Streamlit pour gérer les tables
+- Simuler un mini data lake local avec DuckDB
+- Manipuler des fichiers Parquet partitionnés
+- Créer une interface web avec Streamlit
 
-### Travaux
+## Fonctionnalités
 
-1. Générer un dataset CSV et y ajouter une colonne de partition (`année`, `mois`, etc.)
-2. Sauvegarder les données en plusieurs fichiers Parquet (ex : `2024_data.parquet`, `2025_data.parquet`)
-3. Lire dynamiquement ces fichiers avec DuckDB (`read_parquet('parquet_data/*.parquet')`)
-4. Créer une app Streamlit avec les fonctionnalités suivantes :
-   - Visualiser les tables DuckDB
-   - Supprimer une table
-   - Uploader un CSV et créer une nouvelle table
-   - Afficher les 5 premières lignes des tables
-5. Dockeriser l'application
+- Lire des fichiers Parquet dynamiquement
+- Créer/Supprimer des tables DuckDB
+- Uploader un CSV et l’enregistrer comme table
+- Exporter une table DuckDB en Parquet
+- Visualiser un graphique par année
 
-- Exporter une table en Parquet
-- Ajouter des filtres dynamiques dans l’interface
-- Afficher un graphique à partir d’une table
+## Lancer l’application
+
+```bash
+docker build -t mini_datalake_app -f docker/Dockerfile .
+docker run -p 8501:8501 mini_datalake_app
+```
+
+## Arborescence
+
+```
+tp4_mini_data_lake/
+├── app/
+│   └── app.py
+├── data/
+│   └── *.parquet
+├── docker/
+│   └── Dockerfile
+└── README.md
+```
