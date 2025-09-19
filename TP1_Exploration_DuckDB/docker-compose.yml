@@ -1,0 +1,6 @@
+services:
+  duckdb_analysis:
+    build: .
+    volumes:
+      - ./data:/data
+    container_name: duckdb_tp1
