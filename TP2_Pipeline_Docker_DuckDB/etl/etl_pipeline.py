@@ -2,7 +2,6 @@ import requests
 import pandas as pd
 import duckdb
 import logging
-from datetime import datetime
 
 log_path = "logs/pipeline.log"
 logging.basicConfig(filename=log_path, level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")

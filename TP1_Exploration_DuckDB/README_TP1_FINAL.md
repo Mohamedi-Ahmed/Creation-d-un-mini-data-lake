@@ -76,4 +76,5 @@ Top 10 des régions avec le plus de cas :
 ```sql
 COPY covid_csv TO 'data/covid.parquet' (FORMAT PARQUET)
 ```
+
 ---

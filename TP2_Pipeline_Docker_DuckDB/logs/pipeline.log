@@ -1,0 +1,6 @@
+2025-09-19 16:40:52,118 - ERROR - Erreur : Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-09-19 16:48:46,838 - ERROR - Erreur : IO Error: The file "/app/db/database.duckdb" exists, but it is not a valid DuckDB database file!
